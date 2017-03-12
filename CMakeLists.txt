@@ -105,8 +105,17 @@ find_package(KF5 ${KF5_MIN_VERSION}
              WindowSystem
              XmlGui
              I18n
+             Parts
+             KHtml
+             IconThemes
+             GuiAddons
+             ItemModels
 )
-
+find_package(KF5 5.0.0
+             REQUIRED COMPONENTS
+             KExiv2
+             KGeoMap
+)
 find_package(KF5 ${KF5_MIN_VERSION}
              OPTIONAL_COMPONENTS
              Archive      # for FlashExport
@@ -246,6 +255,7 @@ if(KF5Kipi_FOUND)
         add_subdirectory(yandexfotki)
         add_subdirectory(googleservices)
         add_subdirectory(jalbum)
+        add_subdirectory(geolocator)
 
         if(KF5Archive_FOUND)
             add_subdirectory(flashexport)
