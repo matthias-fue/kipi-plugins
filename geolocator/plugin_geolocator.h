@@ -65,7 +65,6 @@ protected Q_SLOTS:
 private:
 
     void setupActions();
-    bool checkSidecarSettings();
 
 private:
 

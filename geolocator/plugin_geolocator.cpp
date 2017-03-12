@@ -48,7 +48,6 @@
 
 // Local includes
 
-#include "kphostsettings.h"
 #include "kipiplugins_debug.h"
 #include "gpssyncdialog.h"
 
@@ -108,47 +107,11 @@ void Plugin_Geolocator::setupActions()
     addAction(QStringLiteral("geolocator"), m_action_geolocation);
 }
 
-bool Plugin_Geolocator::checkSidecarSettings()
-{
-    KPHostSettings hset;
-    
-    if ( (hset.metadataSettings().metadataWritingMode != KExiv2Iface::KExiv2::WRITETOIMAGEONLY) &&
-         (!hset.metadataSettings().useXMPSidecar4Reading) )
-    {
-        const int result = KMessageBox::warningContinueCancel(
-                QApplication::activeWindow(),
-                i18n(
-                        "You have enabled writing to sidecar files for metadata storage in the host application,"
-                        " but not for reading."
-                        " This means that any metadata stored in the sidecar files will be overwritten here.\n"
-                        "Please enable reading of sidecar files in the host application or continue at your own risk."
-                    ),
-                i18n("Warning: Sidecar settings"),
-                KStandardGuiItem::cont(),
-                KStandardGuiItem::cancel(),
-                QString(),
-                KMessageBox::Dangerous
-            );
-        
-        if (result!=KMessageBox::Continue)
-        {
-            return false;
-        }
-    }
-    
-    return true;
-}
-
 void Plugin_Geolocator::slotGeolocator()
 {
     ImageCollection images = m_interface->currentSelection();
 
     if ( !images.isValid() || images.images().isEmpty() )
-    {
-        return;
-    }
-
-    if (!checkSidecarSettings())
     {
         return;
     }
