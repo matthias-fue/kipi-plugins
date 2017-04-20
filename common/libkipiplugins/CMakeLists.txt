@@ -14,6 +14,7 @@ qt5_add_resources(libkipipluginsresources_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/../da
 set(kipiplugins_LIB_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/tools/kipiplugins_debug.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/tools/kputil.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/tools/kpimageinfo.cpp
+                         ${CMAKE_CURRENT_SOURCE_DIR}/tools/kpmetadata.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/tools/kpversion.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/tools/kpaboutdata.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/tools/kpthreadmanager.cpp
@@ -84,6 +85,7 @@ target_link_libraries(KF5kipiplugins
                       KF5::ConfigCore
 
                       KF5::Kipi
+                      KF5::KExiv2
 )
 
 set_target_properties(KF5kipiplugins PROPERTIES
