@@ -19,6 +19,8 @@ set(kipiplugins_LIB_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/tools/kipiplugins_debug.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/tools/kpaboutdata.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/tools/kpthreadmanager.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/widgets/kpprogresswidget.cpp
+                         ${CMAKE_CURRENT_SOURCE_DIR}/widgets/kppreviewimage.cpp
+                         ${CMAKE_CURRENT_SOURCE_DIR}/widgets/kppreviewmanager.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/widgets/kpsavesettingswidget.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/widgets/kpimageslist.cpp
                          ${CMAKE_CURRENT_SOURCE_DIR}/widgets/kpsettingswidget.cpp
