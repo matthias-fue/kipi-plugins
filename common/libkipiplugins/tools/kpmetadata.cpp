@@ -32,9 +32,6 @@
 
 // Local includes
 
-#include "kpmetasettings.h"
-#include "kphostsettings.h"
-
 // LibKipi includes
 
 #include <KIPI/Interface>
@@ -70,28 +67,15 @@ void KPMetadata::init()
         m_iface = pl->interface();
     }
 
-    KPHostSettings hset;
-    setSettings(hset.metadataSettings());
+    applyDefaultSettings();
 }
 
-void KPMetadata::setSettings(const KPMetaSettings& settings)
+void KPMetadata::applyDefaultSettings()
 {
-    setUseXMPSidecar4Reading(settings.useXMPSidecar4Reading);
-    setWriteRawFiles(settings.writeRawFiles);
-    setMetadataWritingMode(settings.metadataWritingMode);
-    setUpdateFileTimeStamp(settings.updateFileTimeStamp);
-}
-
-KPMetaSettings KPMetadata::settings() const
-{
-    KPMetaSettings settings;
-
-    settings.useXMPSidecar4Reading = useXMPSidecar4Reading();
-    settings.writeRawFiles         = writeRawFiles();
-    settings.metadataWritingMode   = (KPMetadata::MetadataWritingMode)metadataWritingMode();
-    settings.updateFileTimeStamp   = updateFileTimeStamp();
-
-    return settings;
+    setUseXMPSidecar4Reading(false);
+    setWriteRawFiles(false);
+    setMetadataWritingMode(KPMetadata::WRITETOIMAGEONLY);
+    setUpdateFileTimeStamp(false);
 }
 
 bool KPMetadata::load(const QString& filePath) const

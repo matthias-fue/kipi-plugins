@@ -36,6 +36,7 @@ set(kipiplugin_geolocator_PART_SRCS
     track_correlator.cpp
     track_correlator_thread.cpp
     track_listmodel.cpp
+    framewithlayout.cpp
     tests/simpletreemodel/simpletreemodel.cpp
    )
 
@@ -57,6 +58,7 @@ target_link_libraries(kipiplugin_geolocator
                       KF5::Kipi
                       KF5::KExiv2
                       KF5::KGeoMap
+                      KF5::Bookmarks
                       KF5::ItemModels
                       KF5::IconThemes
                       KF5::GuiAddons

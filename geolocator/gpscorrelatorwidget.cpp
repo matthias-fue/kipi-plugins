@@ -55,10 +55,6 @@
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>
 
-// Libkdcraw includes
-
-#include <KDCRAW/RWidgetUtils>
-
 // local includes
 
 #include "kipiplugins_debug.h"
@@ -66,8 +62,7 @@
 #include "kipiimageitem.h"
 #include "gpsundocommand.h"
 #include "track_listmodel.h"
-
-using namespace KDcrawIface;
+#include "gpssync_common.h"
 
 namespace KIPIGeolocatorPlugin
 {
@@ -176,7 +171,10 @@ GPSCorrelatorWidget::GPSCorrelatorWidget(QWidget* const parent, KipiImageModel* 
     d->gpxFileList->setHeaderHidden(false);
     d->gpxFileList->setRootIsDecorated(false);
 
-    RLineWidget* const line    = new RLineWidget(Qt::Horizontal, this);
+    QFrame* const line = createSeparator(this);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    line->setMinimumSize(0, 2);
     QLabel* const maxGapLabel = new QLabel(i18n("Max. time gap (sec.):"), this);
 
     d->maxGapInput            = new QSpinBox(this);

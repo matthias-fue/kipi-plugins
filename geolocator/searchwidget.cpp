@@ -50,10 +50,6 @@
 
 #include <KGeoMap/MapWidget>
 
-// Libkdcraw includes
-
-#include <KDCRAW/RWidgetUtils>
-
 // local includes
 
 #include "searchbackend.h"
@@ -65,8 +61,6 @@
 #ifdef GPSSYNC_MODELTEST
 #include <modeltest.h>
 #endif /* GPSSYNC_MODELTEST */
-
-using namespace KDcrawIface;
 
 namespace KIPIGeolocatorPlugin
 {
@@ -166,13 +160,13 @@ SearchWidget::SearchWidget(GPSBookmarkOwner* const gpsBookmarkOwner,
     d->mainVBox = new QVBoxLayout(this);
     setLayout(d->mainVBox);
 
-    KDcrawIface::RHBox* const topHBox  = new KDcrawIface::RHBox(this);
+    QFrame* const topHBox  = createHBox(this);
     d->mainVBox->addWidget(topHBox);
     d->searchTermLineEdit = new QLineEdit(topHBox);
     d->searchTermLineEdit->setClearButtonEnabled(true);
     d->searchButton       = new QPushButton(i18nc("Start the search", "Search"), topHBox);
 
-    KDcrawIface::RHBox* const actionHBox = new KDcrawIface::RHBox(this);
+    QFrame* const actionHBox = createHBox(this);
     d->mainVBox->addWidget(actionHBox);
 
     d->actionClearResultsList = new QAction(this);

@@ -16,6 +16,9 @@ target_link_libraries(gpssync_test_correlator
                       Qt5::Xml
                       KF5::ItemModels
                       KF5::KGeoMap
+                      KF5::KExiv2
+                      KF5::KIOCore
+                      KF5::I18n
                       KF5kipiplugins
                      )
 
@@ -30,6 +33,8 @@ if(NOT WIN32)
                           Qt5::Gui
                           KF5::ItemModels
                           KF5::KGeoMap
+	                      KF5::KExiv2
+	                      KF5::KIOCore
                           KF5kipiplugins
                          )
 
@@ -47,6 +52,8 @@ target_link_libraries(gpssync_test_rgtagmodel
                       Qt5::Gui
                       KF5::ItemModels
                       KF5::KGeoMap
+                      KF5::KExiv2
+                      KF5::I18n
                       KF5kipiplugins
                      )
 
@@ -62,6 +69,8 @@ target_link_libraries(gpssync_test_kipiimageitem
                       KF5::ItemModels
                       KF5::GuiAddons
                       KF5::KExiv2
+                      KF5::KIOCore
+                      KF5::I18n
                       KF5::KGeoMap
                       KF5::Kipi
                       KF5kipiplugins

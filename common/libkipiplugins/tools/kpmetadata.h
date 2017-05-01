@@ -61,11 +61,6 @@ using namespace KExiv2Iface;
 namespace KIPIPlugins
 {
 
-class KPMetaSettings;
-
-/** This class must be used in plugins instead KExiv2 metadata interface to handle file lock mechanism
- *  with KIPI host application to prevent concurrent operations on file during load and save operations.
- */
 class KIPIPLUGINS_EXPORT KPMetadata : public KExiv2
 {
 
@@ -86,13 +81,9 @@ public:
 
 public:
 
-    /** Apply metadata settings from KIPI host application to this interface. To use before load and save operations.
+    /** Since we don't have hostsettings anymore, just apply the old defaults
      */
-    void setSettings(const KPMetaSettings& settings);
-
-    /** Return all metadata settings configured.
-     */
-    KPMetaSettings settings() const;
+    void applyDefaultSettings();
 
     /** Load metadata operation from a file.
      *  Re-implemented from libKexiv2 to use lock mechanism with KIPI host application through KIPI::Interface.

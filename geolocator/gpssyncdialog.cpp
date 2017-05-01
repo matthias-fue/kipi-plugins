@@ -72,10 +72,6 @@
 #include <KGeoMap/ItemMarkerTiler>
 #include <KGeoMap/Tracks>
 
-// Libkdcraw includes
-
-#include <KDCRAW/RWidgetUtils>
-
 // Local includes
 
 #include "kipiimagemodel.h"
@@ -100,8 +96,6 @@
 #ifdef GPSSYNC_MODELTEST
 #include <modeltest.h>
 #endif /* GPSSYNC_MODELTEST */
-
-using namespace KDcrawIface;
 
 namespace KIPIGeolocatorPlugin
 {
@@ -302,13 +296,13 @@ GPSSyncDialog::GPSSyncDialog(QWidget* const parent)
     QVBoxLayout* const mainLayout = new QVBoxLayout(this);
     setLayout(mainLayout);
 
-    KDcrawIface::RHBox* const hboxMain = new KDcrawIface::RHBox(this);
+    QFrame* const hboxMain = createHBox(this);
     mainLayout->addWidget(hboxMain);
 
     d->HSplitter            = new QSplitter(Qt::Horizontal, hboxMain);
     d->HSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    KDcrawIface::RHBox* const hboxBottom = new KDcrawIface::RHBox(this);
+    QFrame* const hboxBottom = createHBox(this);
     mainLayout->addWidget(hboxBottom);
 
     d->progressBar          = new KPProgressWidget(hboxBottom);
@@ -417,7 +411,7 @@ GPSSyncDialog::GPSSyncDialog(QWidget* const parent)
     d->HSplitter->addWidget(d->stackedWidget);
     d->splitterSize        = 0;
 
-    KDcrawIface::RVBox* const vboxTabBar = new KDcrawIface::RVBox(hboxMain);
+    QFrame* const vboxTabBar = createVBox(hboxMain);
     vboxTabBar->layout()->setSpacing(0);
     vboxTabBar->layout()->setMargin(0);
 
@@ -451,8 +445,6 @@ GPSSyncDialog::GPSSyncDialog(QWidget* const parent)
     // About data and help button.
 
     KPAboutData* const about = new KPAboutData(ki18n("GPS Sync"),
-                                   0,
-                                   KAboutLicense::GPL,
                                    ki18n("A Plugin to synchronize pictures' metadata with a GPS device"),
                                    ki18n("(c) 2006-2015, Gilles Caulier"));
 
@@ -468,7 +460,7 @@ GPSSyncDialog::GPSSyncDialog(QWidget* const parent)
                      ki18n("Developer").toString(),
                            QStringLiteral("caulier dot gilles at gmail dot com"));
 
-    about->addCredit(ki18n("Justus Schwartz").toString(),
+    about->addAuthor(ki18n("Justus Schwartz").toString(),
                      ki18n("Patch for displaying tracks on the map.").toString(),
                            QStringLiteral("justus at gmx dot li"));
 

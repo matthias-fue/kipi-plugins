@@ -115,6 +115,7 @@ find_package(KF5 5.0.0
              REQUIRED COMPONENTS
              KExiv2
              KGeoMap
+             Bookmarks
 )
 find_package(KF5 ${KF5_MIN_VERSION}
              OPTIONAL_COMPONENTS

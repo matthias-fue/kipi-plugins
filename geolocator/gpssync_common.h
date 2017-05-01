@@ -32,10 +32,15 @@
 #include <QMimeData>
 #include <QString>
 #include <QUrl>
+#include <QFrame>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 // Libkgeomap includes
 
 #include <KGeoMap/GeoCoordinates>
+
+#include "framewithlayout.h"
 
 namespace KIPIGeolocatorPlugin
 {
@@ -103,6 +108,35 @@ inline void CoordinatesToClipboard(const KGeoMap::GeoCoordinates& coordinates, c
 
     QClipboard* const clipboard = QApplication::clipboard();
     clipboard->setMimeData(myMimeData);
+}
+
+inline QFrame* createSeparator(QWidget* parent)
+{
+    QFrame* line = new QFrame(parent);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    line->setMinimumSize(0, 2);
+    return line;
+}
+
+inline QFrame* createHBox(QWidget* parent)
+{
+	QFrame* box = new FrameWithLayout(parent);
+    QHBoxLayout* const layout = new QHBoxLayout(parent);
+    layout->setSpacing(0);
+    layout->setMargin(0);
+    box->setLayout(layout);
+	return box;
+}
+
+inline QFrame* createVBox(QWidget* parent)
+{
+	QFrame* box = new FrameWithLayout(parent);
+    QVBoxLayout* const layout = new QVBoxLayout(parent);
+    layout->setSpacing(0);
+    layout->setMargin(0);
+    box->setLayout(layout);
+	return box;
 }
 
 } /* KIPIGeolocatorPlugin */

@@ -45,17 +45,12 @@
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>
 
-// Libkdcraw includes
-
-#include <KDCRAW/RWidgetUtils>
-
 // local includes
 
 #include "kppreviewmanager.h"
 #include "kipiimagemodel.h"
 #include "gpsundocommand.h"
-
-using namespace KDcrawIface;
+#include "gpssync_common.h"
 
 namespace KIPIGeolocatorPlugin
 {
@@ -173,7 +168,7 @@ GPSImageDetails::GPSImageDetails(QWidget* const parent, KipiImageModel* const im
     d->pbApply = new QPushButton(i18n("Apply"), this);
     formLayout->setWidget(formLayout->rowCount(), QFormLayout::SpanningRole, d->pbApply);
 
-    layout1->addWidget(new RLineWidget(Qt::Horizontal, this));
+    layout1->addWidget(createSeparator(this));
 
     // ----------------------------------
 
