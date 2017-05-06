@@ -4,7 +4,7 @@ This project is a fork of https://github.com/KDE/kipi-plugins (the KDE kipi-plug
 that brings back some of the plugins which have been removed from KDE's kipi-plugins.
 
 Digikam, the maintainer of kipi-plugins, has moved a lot of functionality from
-kipi-plugins inside dikikam itself, leaving other applications that can utilize
+kipi-plugins inside digikam itself, leaving other applications that can utilize
 kipi-plugins stripped of these features.
 
 In this project, I revert the removal of some plugins and try to make them work with
